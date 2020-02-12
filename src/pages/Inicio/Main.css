@@ -1,22 +1,18 @@
 main {
   flex: 1;
-  margin: 5% 10% 5% 10%;
+  margin: 5% 15% 5% 15%;
 }
 main ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   list-style: none;
-}
-
-main ul img {
-  height: 120px;
+  height: 300px;
   width: 200px;
 }
 
 li.serv-item {
   background: #fff;
-  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
   border-radius: 7px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.7);
 }
@@ -76,4 +72,12 @@ li.serv-item header .user-info {
 
 .des-item a:hover {
   color: #333;
+}
+
+.des-item img {
+  height: 120px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

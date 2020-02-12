@@ -1,0 +1,94 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div#box {
+  height: 600px;
+  width: 400px;
+  background-color: #fff;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div#box h1 {
+  color: #22a7f0;
+}
+
+div#box p.text1 {
+  font-size: 32px;
+  margin: 15px auto;
+}
+
+div#box input {
+  width: 80%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px;
+  border-style: solid;
+  border-color: gray;
+  margin: 10px auto;
+  padding-left: 5px;
+}
+
+div#box button {
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: #22a7f0;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.5s;
+}
+div#box button:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #22a7f0;
+}
+
+div#box2 {
+  display: flex;
+  flex-direction: row;
+}
+
+div#box2 {
+  width: 80%;
+  margin-top: 40px;
+  border-top: solid 1px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div#box2 p.text2 {
+  font-size: 18px;
+  font-style: italic;
+}
+
+div#box2 a {
+  margin: auto 5px;
+  font-size: 18px;
+  text-decoration: none;
+  font-style: italic;
+  color: #22a7f0;
+}
+
+div#box2 a:hover {
+  color: #000000;
+}
+
+div#label {
+  width: 80%;
+  display: flex;
+  justify-self: start;
+}
+
+div#label2 {
+  width: 80%;
+  display: flex;
+  justify-self: start;
+}
