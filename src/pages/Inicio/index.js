@@ -16,6 +16,7 @@ export default function Inicio() {
         <img src={baseline_menu} id="baseline_menu" alt="Menu"></img>
         <strong>SERVICES ADS</strong>
         <input
+          type="search"
           title="search"
           id="Search"
           placeholder="Pesquise um serviço..."

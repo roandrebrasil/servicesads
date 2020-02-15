@@ -4,7 +4,7 @@ import "./index.css";
 
 export default function Login() {
   return (
-    <main>
+    <div id="containerlogin">
       <div id="box">
         <h1>SERVICES</h1>
         <h1>ADS</h1>
@@ -24,6 +24,6 @@ export default function Login() {
           <a href="/">Crie Agora</a>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

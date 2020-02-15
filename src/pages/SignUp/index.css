@@ -1,4 +1,4 @@
-div#containerlogin {
+div#containerSign {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,8 +87,32 @@ div#label {
   justify-self: start;
 }
 
+div#label p {
+  font-size: 10px;
+  opacity: 0.5;
+  margin-left: 10px;
+}
+
 div#label2 {
   width: 80%;
   display: flex;
   justify-self: start;
+}
+
+div#label2 p {
+  font-size: 10px;
+  opacity: 0.5;
+  margin-left: 10px;
+}
+
+div#label3 {
+  width: 80%;
+  display: flex;
+  justify-self: start;
+}
+
+div#label3 p {
+  font-size: 10px;
+  opacity: 0.5;
+  margin-left: 10px;
 }
