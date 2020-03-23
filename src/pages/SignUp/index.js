@@ -3,7 +3,7 @@ import api from "../../services/api";
 
 import "./index.css";
 
-export default function Cadastro() {
+function Cadastro({ history }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,17 +16,22 @@ export default function Cadastro() {
       email,
       password
     });
-    console.log(response.data);
+
     const { _id } = response.data;
 
+    console.log(_id);
+
     localStorage.setItem("user", _id);
+
+    history.push("/login");
   }
 
   return (
-    <div id="containerSign">
+    <div className="content-signup">
       <div id="box">
-        <h1>SERVICES</h1>
-        <h1>ADS</h1>
+        <h1 className="title">SERVICES</h1>
+        <h1 className="title">ADS</h1>
+
         <p className="text1">Crie sua conta</p>
 
         <form onSubmit={handleSubmit}>
@@ -57,9 +62,10 @@ export default function Cadastro() {
             onChange={event => setPassword(event.target.value)}
           />
 
-          <button type="submit">Cadastrar</button>
+          <button className="btn" type="submit">
+            Cadastrar
+          </button>
         </form>
-
         <div id="box2">
           <p className="text2">Já possui conta?</p>
           <a href="/login">Entre</a>
@@ -68,3 +74,5 @@ export default function Cadastro() {
     </div>
   );
 }
+
+export default Cadastro;
