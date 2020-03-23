@@ -7,17 +7,23 @@ function EditPortfolio() {
   const [name, setName] = useState("");
   const [sobre, setSobre] = useState("");
   const [email, setEmail] = useState("");
+  const [contato, setContato] = useState("");
+  const [facebook, setFacebook] = useState("");
+  const [instagram, setInstagram] = useState("");
 
   useEffect(() => {
     async function loadPortfolio() {
       const user_id = localStorage.getItem("user");
-      const response = await api.get("/auth/updateuser", {
+      const response = await api.get("/auth/register", {
         headers: { user_id }
       });
 
       setName(response.data);
       setEmail(response.data);
       setSobre(response.data);
+      setContato(response.data);
+      setFacebook(response.data);
+      setInstagram(response.data);
     }
 
     loadPortfolio();
@@ -26,10 +32,13 @@ function EditPortfolio() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const response = await api.post("/auth/updateuser00", {
+    const response = await api.post("/auth/updateuser", {
       name,
       sobre,
-      email
+      email,
+      contato,
+      facebook,
+      instagram
     });
 
     const { _id } = response.data;
@@ -64,9 +73,27 @@ function EditPortfolio() {
           value={email}
           onChange={event => setEmail(event.target.value)}
         />
-        <input id="user_phone" type="fone" placeholder="Telefone*"></input>
-        <input id="user_facebook" type="text" placeholder="Facebook*"></input>
-        <input id="user_instagram" type="text" placeholder="Instagram*"></input>
+        <input
+          id="contato"
+          type="fone"
+          placeholder="Telefone*"
+          value={contato}
+          onChange={event => setContato(event.target.value)}
+        />
+        <input
+          id="facebook"
+          type="text"
+          placeholder="Facebook*"
+          value={facebook}
+          onChange={event => setFacebook(event.target.value)}
+        />
+        <input
+          id="user_instagram"
+          type="text"
+          placeholder="Instagram*"
+          value={instagram}
+          onChange={event => setInstagram(event.target.value)}
+        />
         <button className="att" type="submit">
           Atualizar
         </button>
