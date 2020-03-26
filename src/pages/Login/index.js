@@ -23,6 +23,7 @@ export default class Login extends React.Component {
         window.location.href = window.location.origin;
       })
       .catch(e => console.error(e));
+
     // const tokens = sessionStorage.getItem("__TOKEN")
     // axios.post(process.env.REACT_APP_SERVER + "/auth/authenticate",{}, {authorization: 'Bearer '+tokens})
     // console.log('vai')

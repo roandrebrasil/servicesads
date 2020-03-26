@@ -11,19 +11,27 @@ function Cadastro({ history }) {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const response = await api.post("/auth/register", {
+    const data = {
       name,
       email,
       password
-    });
+    };
 
-    const { _id } = response.data;
+    try {
+      const response = await api.post("/auth/register", data);
 
-    console.log(_id);
+      alert(`Seu Cadastro Foi Realizado Com Sucesso, ${response.data.name} !`);
 
-    localStorage.setItem("user", _id);
+      const { _id } = response.data;
 
-    history.push("/login");
+      console.log(_id);
+
+      localStorage.setItem("user", _id);
+
+      history.push("/login");
+    } catch (err) {
+      alert("Erro no cadastro, tente novamente.");
+    }
   }
 
   return (
