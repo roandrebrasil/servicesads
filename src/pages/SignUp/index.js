@@ -28,7 +28,7 @@ function Cadastro({ history }) {
 
   return (
     <div className="content-signup">
-      <div id="box">
+      <div className="boxsignup">
         <h1 className="title">SERVICES</h1>
         <h1 className="title">ADS</h1>
 
@@ -66,8 +66,8 @@ function Cadastro({ history }) {
             Cadastrar
           </button>
         </form>
-        <div id="box2">
-          <p className="text2">Já possui conta?</p>
+        <div className="box-conta">
+          <p className="text-conta">Já possui conta?</p>
           <a href="/login">Entre</a>
         </div>
       </div>
