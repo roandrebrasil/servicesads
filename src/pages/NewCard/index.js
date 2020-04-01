@@ -34,6 +34,9 @@ export default function Newcard() {
           <label>Localização*</label>
         </div>
         <input id="cep" type="number" placeholder="CEP*"></input>
+        <div id="text">
+          <label>Contato*</label>
+        </div>
         <input id="telefone" type="number" placeholder="Telefone*"></input>
         <div id="text">
           <label>Faça upload de uma foto do serviço*</label>
@@ -43,3 +46,4 @@ export default function Newcard() {
     </div>
   );
 }
+

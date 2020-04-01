@@ -40,22 +40,22 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div id="containerlogin">
-        <div id="box">
-          <h1> SERVICES </h1>
-          <h1> ADS </h1>
-          <p className="text1"> Entre em sua conta </p>
-          <div id="label">
-            <label> E - mail </label>{" "}
+      <div className="containerlogin">
+        <div className="boxlogin">
+          <h1>SERVICES</h1>
+          <h1>ADS</h1>
+          <p className="title">Entre em sua conta</p>
+          <div className="label">
+            <label>E-mail*</label>
           </div>
           <input
             type="email"
             value={this.state.email}
             onChange={event => this.setState({ email: event.target.value })}
           ></input>
-          <div id="label2">
-            <label> Senha </label>
-          </div>{" "}
+          <div className="label2">
+            <label>Senha*</label>
+          </div>
           {/* {this.state.username} */}
           <input
             type="password"

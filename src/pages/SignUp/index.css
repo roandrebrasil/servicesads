@@ -1,65 +1,63 @@
-div#containerSign {
+.content-signup {
   display: flex;
+  height: 100%;
   justify-content: center;
-  align-items: center;
 }
-div#box {
-  height: 600px;
+
+.boxsignup {
+  height: 100%;
   width: 400px;
   background-color: #fff;
   flex-direction: column;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-div#box h1 {
+h1.title {
   color: #22a7f0;
 }
 
-div#box p.text1 {
+p.text1 {
   font-size: 32px;
   margin: 15px auto;
 }
-
-div#box form {
+.boxsignup form {
   flex-direction: column;
   display: flex;
 }
 
-div#box form input {
-  width: 300px;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px;
-  border-style: solid;
-  border-color: gray;
+.boxsignup form input {
+  width: 350px;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid #dcdce6;
   margin: 10px auto;
-  padding-left: 5px;
+  padding-left: 0 10px;
 }
 
-div#box form button {
-  width: 300px;
-  height: 40px;
-  border-radius: 10px;
+.btn {
+  width: 100%;
+  height: 60px;
+  border-radius: 8px;
   border: none;
   background: #22a7f0;
   color: #fff;
   font-size: 18px;
-  transition: 0.5s;
+  transition: filter 0.2s;
+  font-weight: 700;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 60px;
 }
-form button:hover {
+.btn:hover {
   cursor: pointer;
-  background: #fff;
-  color: #22a7f0;
+  filter: brightness(90%);
 }
 
-div#box2 {
+.box-conta {
   display: flex;
   flex-direction: row;
-}
-
-div#box2 {
   width: 80%;
   margin-top: 40px;
   border-top: solid 1px;
@@ -69,19 +67,20 @@ div#box2 {
   align-items: center;
 }
 
-div#box2 p.text2 {
+.box-conta p.text-conta {
   font-size: 18px;
   font-style: italic;
 }
 
-div#box2 a {
+.box-conta a {
   margin: auto 5px;
   font-size: 18px;
   text-decoration: none;
   font-style: italic;
   color: #22a7f0;
+  transition: filter 0.2s;
 }
 
-div#box2 a:hover {
-  color: #000000;
+.box-conta a:hover {
+  filter: brightness(80%);
 }
