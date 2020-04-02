@@ -28,7 +28,7 @@ export default class Login extends React.Component {
     // axios.post(process.env.REACT_APP_SERVER + "/auth/authenticate",{}, {authorization: 'Bearer '+tokens})
     // console.log('vai')
   }
-
+  //}
   // pegarUsername(){
   //   let user = sessionStorage.getItem("__USER")
   //   if(!!user){
