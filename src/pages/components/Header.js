@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import "./Header.css";
 
@@ -7,30 +7,31 @@ import account_circle from "../../assets/account-circle.png";
 import keyboard from "../../assets/keyboard_bottom.png";
 
 export default function Header() {
+  const history = useHistory();
   return (
     <header className="main-header">
       <strong className="title-services">SERVICES ADS</strong>
-      <form className="navigation">
-        <Link className="nav" to="/">
+      <span className="navigation">
+        <span className="nav" onClick={() => history.push("/")}>
           {" "}
           Inicio{" "}
-        </Link>
-        <Link className="nav" to="/signup">
+        </span>
+        <span className="nav" onClick={() => history.push("/signup")}>
           {" "}
           Cadastre-se{" "}
-        </Link>
-        <Link className="nav" to="/login">
+        </span>
+        <span className="nav" onClick={() => history.push("/login")}>
           {" "}
           Entrar{" "}
-        </Link>
-        <Link className="nav" to="/">
+        </span>
+        <span className="nav" onClick={() => history.push("/")}>
           Categorias
-        </Link>
-      </form>
+        </span>
+      </span>
 
-      <Link to="/">
+      <span onClick={() => history.push("/")}>
         <img src={keyboard} className="keyboard_bottom" alt="Keyboard"></img>
-      </Link>
+      </span>
       <img
         src={account_circle}
         className="account_circle"

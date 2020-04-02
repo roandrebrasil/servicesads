@@ -24,20 +24,20 @@ input {
   font-style: italic;
 }
 
-div#container form {
+div#container div {
   width: 100%;
   display: flex;
   justify-content: center;
   margin: 20px auto;
 }
 
-div#container form select {
+div#container div select {
   height: 40px;
   width: 80%;
   font-size: 18px;
   font-style: italic;
 }
-div#container form select option {
+div#container div select option {
   font-size: 18px;
   font-style: italic;
 }

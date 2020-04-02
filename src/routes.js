@@ -8,9 +8,12 @@ import Newcard from "./pages/NewCard";
 import Portfolio from "./pages/Portfolio";
 import EditPortfolio from "./pages/editportfolio";
 
+import Header from "./pages/components/Header";
+
 export default function Routes() {
   return (
     <BrowserRouter>
+      <Header />
       <Switch>
         <Route path="/" exact component={Inicio} />
         <Route path="/login" component={Login} />
