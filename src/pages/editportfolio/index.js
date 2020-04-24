@@ -11,39 +11,30 @@ function EditPortfolio() {
   const [facebook, setFacebook] = useState("");
   const [instagram, setInstagram] = useState("");
 
-  useEffect(() => {
-    async function loadPortfolio() {
-      const user_id = localStorage.getItem("user");
-      const response = await api.get("/auth/register", {
-        headers: { user_id }
-      });
 
-      setName(response.data);
-      setEmail(response.data);
-      setSobre(response.data);
-      setContato(response.data);
-      setFacebook(response.data);
-      setInstagram(response.data);
-    }
-
-    loadPortfolio();
-  }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const response = await api.post("/auth/updateuser", {
+
+    const response = await api.put("/auth/updateuser", {
       name,
       sobre,
       email,
       contato,
       facebook,
       instagram
+    }, {
+      headers: {
+        authorization: `Bearer ${sessionStorage.getItem(`__TOKEN`)}`
+      }
     });
 
-    const { _id } = response.data;
+    console.log(response);
 
-    console.log(_id);
+    const user = response.data;
+    sessionStorage.setItem("__USER", JSON.stringify(user));
+    window.location.href = window.location.origin; // manda o usuario para tela de inicio
   }
 
   return (

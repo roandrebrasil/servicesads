@@ -9,8 +9,19 @@ import Cadastro from "../SignUp";
 
 export default function Inicio() {
   const [cards, setCards] = useState([]);
+  const [portfolio, setPortfolio] = useState({
+    name: '',
+
+  })
 
   useEffect(() => {
+
+    let user = sessionStorage.getItem('__USER')
+
+    user = JSON.parse(user)
+
+    setPortfolio(user)
+
     const fetch = async () => {
       try {
         const response = await api.get("/cards/card", {
@@ -48,12 +59,12 @@ export default function Inicio() {
                     alt="Rômulo Brasil"
                   />
                   <div className="user-info">
-                    <strong>NOME_USUARIO</strong>
+                    <strong>{portfolio.name}</strong>
                   </div>
                 </header>
                 <div className="des-item">
                   <img
-                    src="https://www.encontrajardimangela.com.br/wp-content/uploads/2019/07/eletricista-encontra-1562855951.jpg"
+                    src={card.picture}
                     alt="Eletricista"
                   />
                   <h4>{card.name}</h4>

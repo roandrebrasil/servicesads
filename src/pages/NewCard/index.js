@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import api from "../../services/api"; // api criada para receber o local que o host esta alocado
-
 import "./index.css";
 
 export default function Newcard() {
@@ -11,22 +10,27 @@ export default function Newcard() {
   const [phone, setPhone] = useState("");
   const [picture, setPicture] = useState("");
 
-  const transformBlobToText = file =>
+  const transformBase64 = file =>
     new Promise((resolve, reject) => {
-      const reader = new FileReader();
+      var reader = new FileReader();
+      var baseString;
+      reader.onloadend = function () {
+        baseString = reader.result;
+        setPicture(baseString)
+        console.log(baseString)
 
-      reader.onload = e => {
-        setPicture(e.target.result);
-        resolve(e.target.result);
+        resolve(baseString);
       };
+      reader.readAsDataURL(file);
+    })
 
-      reader.readAsText(file);
-    });
+
+
 
   const handleSubmit = async event => {
     event.preventDefault();
     event.stopPropagation();
-    alert(cep.replace(/\.|-/g, ""));
+
 
     try {
       const response = await api.post(
@@ -145,7 +149,7 @@ export default function Newcard() {
           id="foto_service"
           type="file"
           required
-          onChange={event => transformBlobToText(event.target.files[0])}
+          onChange={event => transformBase64(event.target.files[0])}
         ></input>
         <button type="submit">Cadastrar</button>
       </div>
