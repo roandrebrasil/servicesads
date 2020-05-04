@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import api from "../../services/api";
 
 import "./index.css";
@@ -11,24 +11,25 @@ function EditPortfolio() {
   const [facebook, setFacebook] = useState("");
   const [instagram, setInstagram] = useState("");
 
-
-
   async function handleSubmit(event) {
     event.preventDefault();
 
-
-    const response = await api.put("/auth/updateuser", {
-      name,
-      sobre,
-      email,
-      contato,
-      facebook,
-      instagram
-    }, {
-      headers: {
-        authorization: `Bearer ${sessionStorage.getItem(`__TOKEN`)}`
+    const response = await api.put(
+      "/auth/updateuser",
+      {
+        name,
+        sobre,
+        email,
+        contato,
+        facebook,
+        instagram,
+      },
+      {
+        headers: {
+          authorization: `Bearer ${sessionStorage.getItem(`__TOKEN`)}`,
+        },
       }
-    });
+    );
 
     console.log(response);
 
@@ -48,42 +49,42 @@ function EditPortfolio() {
           type="text"
           placeholder="Nome*"
           value={name}
-          onChange={event => setName(event.target.value)}
+          onChange={(event) => setName(event.target.value)}
         />
         <input
           id="sobre"
           type="text"
           placeholder="Sobre Mim*"
           value={sobre}
-          onChange={event => setSobre(event.target.value)}
+          onChange={(event) => setSobre(event.target.value)}
         />
         <input
           id="email"
           type="email"
           placeholder="E-mail*"
           value={email}
-          onChange={event => setEmail(event.target.value)}
+          onChange={(event) => setEmail(event.target.value)}
         />
         <input
           id="contato"
           type="fone"
           placeholder="Telefone*"
           value={contato}
-          onChange={event => setContato(event.target.value)}
+          onChange={(event) => setContato(event.target.value)}
         />
         <input
           id="facebook"
           type="text"
           placeholder="Facebook*"
           value={facebook}
-          onChange={event => setFacebook(event.target.value)}
+          onChange={(event) => setFacebook(event.target.value)}
         />
         <input
           id="user_instagram"
           type="text"
           placeholder="Instagram*"
           value={instagram}
-          onChange={event => setInstagram(event.target.value)}
+          onChange={(event) => setInstagram(event.target.value)}
         />
         <button className="att" type="submit">
           Atualizar
