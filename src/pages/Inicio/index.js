@@ -5,7 +5,7 @@ import api from "../../services/api";
 import "./App.css";
 import "./Banner.css";
 import "./Main.css";
-import Cadastro from "../SignUp";
+//import Cadastro from "../SignUp";
 
 export default function Inicio() {
   const [cards, setCards] = useState([]);

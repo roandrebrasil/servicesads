@@ -4,13 +4,13 @@ import Perfil from "./imgs/img1.jpg";
 import facebook from "./imgs/facebook.png";
 import instagram from "./imgs/instagram.png";
 import api from "../../services/api";
-import EditPortfolio from "../editportfolio";
+//import EditPortfolio from "../editportfolio";
 
 
 
 export default function Portfolio() {
   const [cards, setCards] = useState([]);
-  const [portfolio, setPortfolio] = useState({
+  const [user, setUser] = useState({
     name: '',
     sobre: '',
     email: '',
@@ -48,7 +48,7 @@ export default function Portfolio() {
 
     user = JSON.parse(user)
 
-    setPortfolio(user)
+    setUser(user)
 
 
   }, [])
@@ -57,24 +57,33 @@ export default function Portfolio() {
   return (
     <main id="portfolio">
       <article>
-        <img src={Perfil} className="perfil_user" alt="Foto de Perfil"></img>
+        <img src={user.perfil} className="perfil_user" alt="Foto de Perfil"></img>
         <div className="user-dados">
-          <strong> Nome: {portfolio.name}</strong>
-          <span> Sobre mim: {portfolio.sobre}</span>
-          <span> Email: {portfolio.email}</span>
-          <span> Contato: {portfolio.contato}</span>
+          <strong> Nome: {user.name}</strong>
+          <span> Sobre mim: {user.sobre}</span>
+          <span> Email: {user.email}</span>
+          <span> Contato: {user.contato}</span>
 
           <div className="box1">
             <img className="social-face" src={facebook} alt="facebook"></img>
-            <span> {portfolio.facebook}</span>
+            <span> {user.facebook}</span>
             <img className="social-insta" src={instagram} alt="instagram"></img>
-            <span> @{portfolio.instagram}</span>
+            <span> @{user.instagram}</span>
           </div>
         </div>
       </article>
       <article className="submenu-imagens">
         <p>IMAGENS</p>
       </article>
+      <div style={{ margin: "15px 0px", display: "flex", justifyContent: "space-between", height: "160px", flex: 1, paddingRight: "130px", flexWrap: "wrap" }}>
+        {
+          user.portfolio && user.portfolio.map(img => (
+            <div style={{ width: "120px", height: "120px" }}>
+              <img src={img} className="perfil_user" alt="Foto de Perfil"></img>
+            </div>
+          ))
+        }
+      </div>
       <article className="submenu-videos">
         <p>VIDEOS</p>
       </article>
@@ -91,7 +100,7 @@ export default function Portfolio() {
                   alt="Rômulo Brasil"
                 />
                 <div className="user-info">
-                  <strong>{portfolio.name}</strong>
+                  <strong>{user.name}</strong>
                 </div>
               </header>
               <div className="des-item">
