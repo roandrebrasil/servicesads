@@ -4,6 +4,7 @@ import api from "../../services/api";
 
 import "./App.css";
 import "./Main.css";
+//import Cadastro from "../SignUp";
 
 import BannerAnim, { Element } from "rc-banner-anim";
 import TweenOne from "rc-tween-one";
