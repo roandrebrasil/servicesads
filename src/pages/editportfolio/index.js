@@ -20,6 +20,7 @@ function EditPortfolio() {
       reader.onloadend = function () {
         baseString = reader.result;
         callback(baseString)
+
         console.log(baseString)
 
         resolve(baseString);

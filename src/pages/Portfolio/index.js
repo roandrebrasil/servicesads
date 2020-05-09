@@ -95,8 +95,7 @@ export default function Portfolio() {
           return (
             <li className="serv-item">
               <header>
-                <img
-                  src="https://avatars3.githubusercontent.com/u/50125514?s=460&v=4"
+                <img src={user.perfil} alt="Foto de Perfil"
                   alt="Rômulo Brasil"
                 />
                 <div className="user-info">
