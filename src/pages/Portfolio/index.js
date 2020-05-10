@@ -52,7 +52,7 @@ export default function Portfolio() {
           alt="Foto de Perfil"
         ></img>
         <div className="user-dados">
-          <strong> Nome: {user.name}</strong>
+          <strong>{user.name}</strong>
           <span> Sobre mim: {user.sobre}</span>
           <span> Email: {user.email}</span>
           <span> Contato: {user.contato}</span>
@@ -86,9 +86,6 @@ export default function Portfolio() {
             </div>
           ))}
       </div>
-      <article className="submenu-videos">
-        <p>VIDEOS</p>
-      </article>
       <article className="submenu-cards">
         <p>SERVIÇO</p>
       </article>
@@ -97,10 +94,7 @@ export default function Portfolio() {
           return (
             <li className="serv-item">
               <header>
-                <img
-                  src="https://avatars3.githubusercontent.com/u/50125514?s=460&v=4"
-                  alt="Rômulo Brasil"
-                />
+                <img src={user.perfil} alt="Usuário" />
                 <div className="user-info">
                   <strong>{user.name}</strong>
                 </div>
