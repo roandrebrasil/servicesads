@@ -19,13 +19,15 @@ export default function Portfolio() {
     facebook: '',
   });
 
+
   useEffect(() => {
+
     const fetch = async () => {
       try {
         const response = await api.get("/cards/card", {
           headers: {
-            authorization: `Bearer ${sessionStorage.getItem(`__TOKEN`)}`,
-          },
+            authorization: `Bearer ${sessionStorage.getItem(`__TOKEN`)}`
+          }
         });
         const { cards } = response.data;
         if (cards) {
@@ -38,8 +40,8 @@ export default function Portfolio() {
     fetch();
   }, []);
 
+
   useEffect(function () {
-    let user = sessionStorage.getItem(`__USER`);
 
     let user = sessionStorage.getItem(`__USER`)
 
@@ -51,8 +53,6 @@ export default function Portfolio() {
 
   }, [])
 
-    setPortfolio(user);
-  }, []);
 
   return (
     <main id="portfolio">
@@ -91,11 +91,12 @@ export default function Portfolio() {
         <p>SERVIÇO</p>
       </article>
       <ul>
-        {cards.map((card) => {
+        {cards.map(card => {
           return (
             <li className="serv-item">
               <header>
-                <img src={user.perfil} alt="Foto de Perfil"
+                <img
+                  src="https://avatars3.githubusercontent.com/u/50125514?s=460&v=4"
                   alt="Rômulo Brasil"
                 />
                 <div className="user-info">
@@ -103,7 +104,10 @@ export default function Portfolio() {
                 </div>
               </header>
               <div className="des-item">
-                <img src={card.picture} alt="Eletricista" />
+                <img
+                  src={card.picture}
+                  alt="Eletricista"
+                />
                 <h4>{card.name}</h4>
                 <span>{card.description}</span>
                 <a href="/portfolio">Ver mais</a>
@@ -121,3 +125,6 @@ export default function Portfolio() {
     </main>
   );
 }
+
+
+

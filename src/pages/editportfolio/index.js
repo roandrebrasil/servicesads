@@ -20,7 +20,6 @@ function EditPortfolio() {
       reader.onloadend = function () {
         baseString = reader.result;
         callback(baseString)
-
         console.log(baseString)
 
         resolve(baseString);
@@ -59,7 +58,7 @@ function EditPortfolio() {
       headers: {
         authorization: `Bearer ${sessionStorage.getItem(`__TOKEN`)}`
       }
-    );
+    });
 
     console.log(response);
 
@@ -79,42 +78,42 @@ function EditPortfolio() {
           type="text"
           placeholder="Nome*"
           value={name}
-          onChange={(event) => setName(event.target.value)}
+          onChange={event => setName(event.target.value)}
         />
         <input
           id="sobre"
           type="text"
           placeholder="Sobre Mim*"
           value={sobre}
-          onChange={(event) => setSobre(event.target.value)}
+          onChange={event => setSobre(event.target.value)}
         />
         <input
           id="email"
           type="email"
           placeholder="E-mail*"
           value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={event => setEmail(event.target.value)}
         />
         <input
           id="contato"
           type="fone"
           placeholder="Telefone*"
           value={contato}
-          onChange={(event) => setContato(event.target.value)}
+          onChange={event => setContato(event.target.value)}
         />
         <input
           id="facebook"
           type="text"
           placeholder="Facebook*"
           value={facebook}
-          onChange={(event) => setFacebook(event.target.value)}
+          onChange={event => setFacebook(event.target.value)}
         />
         <input
           id="user_instagram"
           type="text"
           placeholder="Instagram*"
           value={instagram}
-          onChange={(event) => setInstagram(event.target.value)}
+          onChange={event => setInstagram(event.target.value)}
         />
         <button className="att" type="submit">
           Atualizar
