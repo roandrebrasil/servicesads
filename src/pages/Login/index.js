@@ -7,7 +7,7 @@ import "./index.css";
 export default class Login extends React.Component {
   state = {
     email: "",
-    password: ""
+    password: "",
     // username: ""
   };
 
@@ -15,15 +15,15 @@ export default class Login extends React.Component {
     api
       .post("/auth/authenticate", {
         email: this.state.email,
-        password: this.state.password
+        password: this.state.password,
       })
-      .then(response => {
+      .then((response) => {
         const { user, token } = response.data;
         sessionStorage.setItem("__TOKEN", token);
         sessionStorage.setItem("__USER", JSON.stringify(user));
         window.location.href = window.location.origin;
       })
-      .catch(e => console.error(e));
+      .catch((e) => console.error(e));
     // const tokens = sessionStorage.getItem("__TOKEN")
     // axios.post(process.env.REACT_APP_SERVER + "/auth/authenticate",{}, {authorization: 'Bearer '+tokens})
     // console.log('vai')
@@ -51,7 +51,7 @@ export default class Login extends React.Component {
           <input
             type="email"
             value={this.state.email}
-            onChange={event => this.setState({ email: event.target.value })}
+            onChange={(event) => this.setState({ email: event.target.value })}
           ></input>
           <div className="label2">
             <label>Senha*</label>
@@ -60,12 +60,18 @@ export default class Login extends React.Component {
           <input
             type="password"
             value={this.state.password}
-            onChange={event => this.setState({ password: event.target.value })}
+            onChange={(event) =>
+              this.setState({ password: event.target.value })
+            }
           ></input>
-          <button onClick={() => this.login()}> Entrar</button> {}
-          <div id="box2">
-            <p className="text2"> Não tem uma conta ? </p>
-            <a href="/"> Crie Agora </a>
+          <button className="button" onClick={() => this.login()}>
+            {" "}
+            Entrar
+          </button>{" "}
+          {}
+          <div className="box2">
+            <p> Não tem uma conta ? </p>
+            <a href="/signup"> Crie Agora </a>
           </div>{" "}
         </div>{" "}
       </div>
