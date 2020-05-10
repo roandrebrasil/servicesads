@@ -3,31 +3,28 @@ import React, { useState, useEffect } from "react";
 import api from "../../services/api";
 
 import "./App.css";
-import "./Banner.css";
 import "./Main.css";
 //import Cadastro from "../SignUp";
 
 export default function Inicio() {
   const [cards, setCards] = useState([]);
   const [portfolio, setPortfolio] = useState({
-    name: '',
-
-  })
+    name: "",
+  });
 
   useEffect(() => {
+    let user = sessionStorage.getItem("__USER");
 
-    let user = sessionStorage.getItem('__USER')
+    user = JSON.parse(user);
 
-    user = JSON.parse(user)
-
-    setPortfolio(user)
+    setPortfolio(user);
 
     const fetch = async () => {
       try {
         const response = await api.get("/cards/card", {
           headers: {
-            authorization: `Bearer ${sessionStorage.getItem(`__TOKEN`)}`
-          }
+            authorization: `Bearer ${sessionStorage.getItem(`__TOKEN`)}`,
+          },
         });
         const { cards } = response.data;
         if (cards) {
@@ -50,7 +47,7 @@ export default function Inicio() {
 
       <main>
         <ul>
-          {cards.map(card => {
+          {cards.map((card) => {
             return (
               <li className="serv-item">
                 <header>
@@ -63,10 +60,7 @@ export default function Inicio() {
                   </div>
                 </header>
                 <div className="des-item">
-                  <img
-                    src={card.picture}
-                    alt="Eletricista"
-                  />
+                  <img src={card.picture} alt="Eletricista" />
                   <h4>{card.name}</h4>
                   <span>{card.description}</span>
                   <a href="/portfolio">Ver mais</a>

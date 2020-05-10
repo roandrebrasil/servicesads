@@ -1,42 +1,74 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./Header.css";
-
 import account_circle from "../../assets/account-circle.png";
-import keyboard from "../../assets/keyboard_bottom.png";
 
 export default function Header() {
-  const history = useHistory();
   return (
-    <header className="main-header">
-      <strong className="title-services">SERVICES ADS</strong>
-      <span className="navigation">
-        <span className="nav" onClick={() => history.push("/")}>
-          {" "}
-          Inicio{" "}
-        </span>
-        <span className="nav" onClick={() => history.push("/signup")}>
-          {" "}
-          Cadastre-se{" "}
-        </span>
-        <span className="nav" onClick={() => history.push("/login")}>
-          {" "}
-          Entrar{" "}
-        </span>
-        <span className="nav" onClick={() => history.push("/")}>
-          Categorias
-        </span>
-      </span>
+    <div className="navbar">
+      <strong>SERVICES ADS</strong>
+      <Link to="/">Inicio</Link>
+      <Link to="/signup">Cadastre-se</Link>
+      <Link to="/login">Entrar</Link>
 
-      <span onClick={() => history.push("/")}>
-        <img src={keyboard} className="keyboard_bottom" alt="Keyboard"></img>
-      </span>
-      <img
-        src={account_circle}
-        className="account_circle"
-        alt="AccountCircle"
-      ></img>
-    </header>
+      <div>
+        <nav className="menu">
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li>
+              <Link to="#">Categorias</Link>
+              <ul>
+                <li>
+                  <Link to="#">Profissional de limpeza</Link>
+                </li>
+                <li>
+                  <Link to="#">Técnico eletricista</Link>
+                </li>
+                <li>
+                  <Link to="#">Técnico de informática</Link>
+                </li>
+                <li>
+                  <Link to="#">Pedreiro</Link>
+                </li>
+                <li>
+                  <Link to="#">Pintor</Link>
+                </li>
+                <li>
+                  <Link to="#">Carroceiro</Link>
+                </li>
+                <li>
+                  <Link to="#">Esteticista</Link>
+                </li>
+                <li>
+                  <Link to="#">Encanador</Link>
+                </li>
+                <li>
+                  <Link to="#">Freteiro e Montador de Móveis</Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <img src={account_circle} alt="Menu" />
+              <ul>
+                <li>
+                  {" "}
+                  <Link to="/portfolio">Portfolio</Link>
+                </li>
+                <li>
+                  {" "}
+                  <Link to="/editportfolio">Editar Portfolio</Link>{" "}
+                </li>
+                <li>
+                  <Link to="/newcard">Adicionar Card</Link>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   );
 }

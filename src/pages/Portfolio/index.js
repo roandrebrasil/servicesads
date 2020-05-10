@@ -1,33 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
-import Perfil from "./imgs/img1.jpg";
 import facebook from "./imgs/facebook.png";
 import instagram from "./imgs/instagram.png";
 import api from "../../services/api";
 //import EditPortfolio from "../editportfolio";
 
-
-
 export default function Portfolio() {
   const [cards, setCards] = useState([]);
   const [user, setUser] = useState({
-    name: '',
-    sobre: '',
-    email: '',
-    contato: '',
-    instagram: '',
-    facebook: '',
+    name: "",
+    sobre: "",
+    email: "",
+    contato: "",
+    instagram: "",
+    facebook: "",
   });
 
-
   useEffect(() => {
-
     const fetch = async () => {
       try {
         const response = await api.get("/cards/card", {
           headers: {
-            authorization: `Bearer ${sessionStorage.getItem(`__TOKEN`)}`
-          }
+            authorization: `Bearer ${sessionStorage.getItem(`__TOKEN`)}`,
+          },
         });
         const { cards } = response.data;
         if (cards) {
@@ -40,24 +35,22 @@ export default function Portfolio() {
     fetch();
   }, []);
 
-
   useEffect(function () {
+    let user = sessionStorage.getItem(`__USER`);
 
-    let user = sessionStorage.getItem(`__USER`)
+    user = JSON.parse(user);
 
-
-    user = JSON.parse(user)
-
-    setUser(user)
-
-
-  }, [])
-
+    setUser(user);
+  }, []);
 
   return (
     <main id="portfolio">
       <article>
-        <img src={user.perfil} className="perfil_user" alt="Foto de Perfil"></img>
+        <img
+          src={user.perfil}
+          className="perfil_user"
+          alt="Foto de Perfil"
+        ></img>
         <div className="user-dados">
           <strong> Nome: {user.name}</strong>
           <span> Sobre mim: {user.sobre}</span>
@@ -75,14 +68,23 @@ export default function Portfolio() {
       <article className="submenu-imagens">
         <p>IMAGENS</p>
       </article>
-      <div style={{ margin: "15px 0px", display: "flex", justifyContent: "space-between", height: "160px", flex: 1, paddingRight: "130px", flexWrap: "wrap" }}>
-        {
-          user.portfolio && user.portfolio.map(img => (
+      <div
+        style={{
+          margin: "15px 0px",
+          display: "flex",
+          justifyContent: "space-between",
+          height: "160px",
+          flex: 1,
+          paddingRight: "130px",
+          flexWrap: "wrap",
+        }}
+      >
+        {user.portfolio &&
+          user.portfolio.map((img) => (
             <div style={{ width: "120px", height: "120px" }}>
               <img src={img} className="perfil_user" alt="Foto de Perfil"></img>
             </div>
-          ))
-        }
+          ))}
       </div>
       <article className="submenu-videos">
         <p>VIDEOS</p>
@@ -91,7 +93,7 @@ export default function Portfolio() {
         <p>SERVIÇO</p>
       </article>
       <ul>
-        {cards.map(card => {
+        {cards.map((card) => {
           return (
             <li className="serv-item">
               <header>
@@ -104,10 +106,7 @@ export default function Portfolio() {
                 </div>
               </header>
               <div className="des-item">
-                <img
-                  src={card.picture}
-                  alt="Eletricista"
-                />
+                <img src={card.picture} alt="Eletricista" />
                 <h4>{card.name}</h4>
                 <span>{card.description}</span>
                 <a href="/portfolio">Ver mais</a>
@@ -125,6 +124,3 @@ export default function Portfolio() {
     </main>
   );
 }
-
-
-
