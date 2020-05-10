@@ -10,27 +10,23 @@ export default function Newcard() {
   const [phone, setPhone] = useState("");
   const [picture, setPicture] = useState("");
 
-  const transformBase64 = file =>
+  const transformBase64 = (file) =>
     new Promise((resolve, reject) => {
       var reader = new FileReader();
       var baseString;
       reader.onloadend = function () {
         baseString = reader.result;
-        setPicture(baseString)
-        console.log(baseString)
+        setPicture(baseString);
+        console.log(baseString);
 
         resolve(baseString);
       };
       reader.readAsDataURL(file);
-    })
+    });
 
-
-
-
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     event.stopPropagation();
-
 
     try {
       const response = await api.post(
@@ -41,12 +37,12 @@ export default function Newcard() {
           categoria,
           cep: cep.replace(/\.|-/g, ""),
           phone,
-          picture
+          picture,
         },
         {
           headers: {
-            authorization: `Bearer ${sessionStorage.getItem("__TOKEN")}`
-          }
+            authorization: `Bearer ${sessionStorage.getItem("__TOKEN")}`,
+          },
         }
       );
       const { cards, message } = response.data;
@@ -75,7 +71,7 @@ export default function Newcard() {
           minLength="3"
           placeholder="Nome do seu serviço/trabalho*"
           value={name}
-          onChange={event => setName(event.target.value)}
+          onChange={(event) => setName(event.target.value)}
         ></input>
         <input
           id="desc_service"
@@ -84,20 +80,25 @@ export default function Newcard() {
           required
           placeholder="Descrição do serviço*"
           value={description}
-          onChange={event => setDescription(event.target.value)}
+          onChange={(event) => setDescription(event.target.value)}
         ></input>
         {/* <label>Categoria*</label> */}
         <div>
           <select
-            onChange={event => setCategoria(event.target.value)}
+            onChange={(event) => setCategoria(event.target.value)}
             value={categoria}
             required
           >
             <option value="">Selecione</option>
-            <option value="jardinagem">Jardinagem</option>
+            <option value="limpeza">Profissional de Limpeza</option>
+            <option value="eletricista">Técnico Eletricista</option>
+            <option value="informatica">Técnico em Informática</option>
+            <option value="pedreiro">Pedreiro</option>
+            <option value="pintor">Pintor</option>
+            <option value="carroceiro">Carroceiro</option>
+            <option value="esteticista">Esteticista</option>
             <option value="encanador">Encanador</option>
-            <option value="eletricista">Eletricista</option>
-            <option value="limpeza">Limpeza Geral</option>
+            <option value="freteiro">Freteiro e montador de móveis</option>
           </select>
         </div>
       </div>
@@ -113,7 +114,7 @@ export default function Newcard() {
           value={cep}
           minLength="10"
           maxLength="10"
-          onChange={event => {
+          onChange={(event) => {
             let newCep = event.target.value.replace(/\D/g, "");
             newCep = newCep.replace(
               /^([\d]{2})\.*([\d]{3})-*([\d]{3})/,
@@ -132,7 +133,7 @@ export default function Newcard() {
           placeholder="Telefone*"
           minLength="14"
           value={phone}
-          onChange={event => {
+          onChange={(event) => {
             let newPhone = event.target.value.replace(/\D/g, "");
 
             newPhone = newPhone.replace(
@@ -149,9 +150,11 @@ export default function Newcard() {
           id="foto_service"
           type="file"
           required
-          onChange={event => transformBase64(event.target.files[0])}
+          onChange={(event) => transformBase64(event.target.files[0])}
         ></input>
-        <button type="submit">Cadastrar</button>
+        <button className="btnatt" type="submit">
+          Cadastrar
+        </button>
       </div>
     </form>
   );

@@ -66,3 +66,19 @@ div#text {
   justify-self: start;
   display: flex;
 }
+
+.btnatt {
+  width: 80%;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background: #22a7f0;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.5s;
+}
+.btnatt:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #22a7f0;
+}

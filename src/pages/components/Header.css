@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
 }
 
 .navbar strong {
@@ -36,8 +37,6 @@
 
 .menu {
   height: 50px;
-  font-family: Arial, Helvetica, sans-serif;
-  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
 }
 
 .menu ul {
