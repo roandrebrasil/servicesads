@@ -83,29 +83,58 @@ li.serv-item header .user-info {
 }
 
 /*BANNER*/
-.banner-user {
+.banner {
+  border-top: solid 0.5px #999;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  height: 300px;
-  background-color: #fff;
-}
-.banner-user-elem {
-  text-align: center;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-.banner-user-elem .banner-user-title {
-  font-size: 32px;
-  top: 40%;
-}
-.banner-user-elem .banner-user-text {
-  top: 40%;
-}
-.banner-anim-elem .bg {
+  height: 125px;
   width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
+  background-color: #fff;
+  border-bottom: solid 0.5px #999;
+}
+.banner div {
+  display: flex;
+  flex-direction: row;
+}
+.banner div div img {
+  height: 50px;
+  width: 50px;
+  margin: 0px 50px 0px 50px;
+}
+
+.banner div div {
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+.banner div div:hover {
+  cursor: pointer;
+  background-color: #eeeeee;
+}
+
+.banner div div a {
+  text-decoration: none;
+  color: #333;
+  margin-top: 10px;
+}
+
+.contract_serv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  height: 60px;
+  width: 100%;
+  background-color: #22a7f0;
+  color: #fff;
+}
+
+.contract_serv img {
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
 }
