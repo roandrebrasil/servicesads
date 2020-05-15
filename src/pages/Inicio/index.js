@@ -7,14 +7,10 @@ import "./Main.css";
 //import Cadastro from "../SignUp";
 
 import serv from "../../assets/servicos.png";
-import serv1 from "../../assets/Carroceiro.png";
-import serv2 from "../../assets/Eletricista.png";
-import serv3 from "../../assets/Encanador.png";
-import serv4 from "../../assets/Esteticista.png";
-import serv5 from "../../assets/Informática.png";
-import serv6 from "../../assets/Limpeza.png";
-import serv7 from "../../assets/Pedreiro.png";
-import serv8 from "../../assets/Pintor.png";
+import serv1 from "../../assets/Eletricista.png";
+import serv2 from "../../assets/Informática.png";
+import serv3 from "../../assets/Limpeza.png";
+import serv4 from "../../assets/Pedreiro.png";
 
 export default function Inicio() {
   const [cards, setCards] = useState([]);
@@ -54,51 +50,27 @@ export default function Inicio() {
         <div>
           <div>
             <Link to="#">
-              <img alt="Carroceiro" src={serv1} />
-            </Link>
-            <Link to="#">Carroceiro</Link>
-          </div>
-          <div>
-            <Link to="#">
-              <img alt="Eletricista" src={serv2} />
+              <img alt="Eletricista" src={serv1} />
             </Link>
             <Link to="#">Eletricista</Link>
           </div>
           <div>
             <Link to="#">
-              <img alt="Encanador" src={serv3} />
-            </Link>
-            <Link to="#">Encanador</Link>
-          </div>
-          <div>
-            <Link to="#">
-              <img alt="Esteticista" src={serv4} />
-            </Link>
-            <Link to="#">Esteticista</Link>
-          </div>
-          <div>
-            <Link to="#">
-              <img alt="Técnico em Informática" src={serv5} />
+              <img alt="Técnico em Informática" src={serv2} />
             </Link>
             <Link to="#"> Informática</Link>
           </div>
           <div>
             <Link to="#">
-              <img alt="Profissional de Limpeza" src={serv6} />
+              <img alt="Profissional de Limpeza" src={serv3} />
             </Link>
             <Link to="#">Limpeza</Link>
           </div>
           <div>
             <Link to="#">
-              <img alt="Pedreiro" src={serv7} />
+              <img alt="Pedreiro" src={serv4} />
             </Link>
             <Link to="#"> Pedreiro </Link>
-          </div>
-          <div>
-            <Link to="#">
-              <img alt="Pintor" src={serv8} />
-            </Link>
-            <Link to="#"> Pintor </Link>
           </div>
         </div>
       </div>

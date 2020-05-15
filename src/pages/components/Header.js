@@ -33,21 +33,6 @@ export default function Header() {
                 <li>
                   <Link to="#">Pedreiro</Link>
                 </li>
-                <li>
-                  <Link to="#">Pintor</Link>
-                </li>
-                <li>
-                  <Link to="#">Carroceiro</Link>
-                </li>
-                <li>
-                  <Link to="#">Esteticista</Link>
-                </li>
-                <li>
-                  <Link to="#">Encanador</Link>
-                </li>
-                <li>
-                  <Link to="#">Freteiro e Montador de Móveis</Link>
-                </li>
               </ul>
             </li>
             <li>
@@ -63,6 +48,9 @@ export default function Header() {
                 </li>
                 <li>
                   <Link to="/newcard">Adicionar Card</Link>
+                </li>
+                <li>
+                  <Link to="#">Sair</Link>
                 </li>
               </ul>
             </li>
