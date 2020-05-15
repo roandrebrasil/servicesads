@@ -94,11 +94,6 @@ export default function Newcard() {
             <option value="eletricista">Técnico Eletricista</option>
             <option value="informatica">Técnico em Informática</option>
             <option value="pedreiro">Pedreiro</option>
-            <option value="pintor">Pintor</option>
-            <option value="carroceiro">Carroceiro</option>
-            <option value="esteticista">Esteticista</option>
-            <option value="encanador">Encanador</option>
-            <option value="freteiro">Freteiro e montador de móveis</option>
           </select>
         </div>
       </div>

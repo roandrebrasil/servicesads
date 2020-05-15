@@ -4,7 +4,6 @@ import api from "../../services/api";
 
 import "./App.css";
 import "./Main.css";
-//import Cadastro from "../SignUp";
 
 import serv from "../../assets/servicos.png";
 import serv1 from "../../assets/Eletricista.png";
@@ -85,16 +84,13 @@ export default function Inicio() {
             return (
               <li className="serv-item">
                 <header>
-                  <img
-                    src="https://avatars3.githubusercontent.com/u/50125514?s=460&v=4"
-                    alt="Rômulo Brasil"
-                  />
+                  <img src={portfolio.perfil} alt="foto" />
                   <div className="user-info">
                     <strong>{portfolio.name}</strong>
                   </div>
                 </header>
                 <div className="des-item">
-                  <img src={card.picture} alt="Eletricista" />
+                  <img src={card.picture} alt="img_servico" />
                   <h4>{card.name}</h4>
                   <span>{card.description}</span>
                   <a href="/portfolio">Ver mais</a>
