@@ -7,6 +7,7 @@ import Cadastro from "./pages/SignUp";
 import Newcard from "./pages/NewCard";
 import Portfolio from "./pages/Portfolio";
 import EditPortfolio from "./pages/editportfolio";
+import ListCards from "./pages/ListCards";
 
 import Header from "./pages/components/Header";
 
@@ -21,6 +22,7 @@ export default function Routes() {
         <Route path="/newcard" component={Newcard} />
         <Route path="/portfolio" component={Portfolio} />~
         <Route path="/editportfolio" component={EditPortfolio} />
+        <Route path="/cards/tipo" component={ListCards} />
       </Switch>
     </BrowserRouter>
   );

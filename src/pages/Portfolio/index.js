@@ -3,7 +3,6 @@ import "./index.css";
 import facebook from "./imgs/facebook.png";
 import instagram from "./imgs/instagram.png";
 import api from "../../services/api";
-//import EditPortfolio from "../editportfolio";
 
 export default function Portfolio() {
   const [cards, setCards] = useState([]);
