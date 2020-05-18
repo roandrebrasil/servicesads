@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import api from "../../services/api";
@@ -9,7 +9,7 @@ import serv3 from "../../assets/Limpeza.png";
 import serv4 from "../../assets/Pedreiro.png";
 
 export default function ListCards({ categoria }) {
-  // const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState([]);
   // const [users, setUsers] = useState([]);
   useEffect(() => {
     async function loadCards() {
@@ -17,8 +17,7 @@ export default function ListCards({ categoria }) {
         params: { categoria },
       });
 
-      console.log(response.data);
-      // setCards(response.data);
+      setCards(response.data);
       // setUsers(response.data);
     }
 
@@ -56,7 +55,7 @@ export default function ListCards({ categoria }) {
         </div>
       </div>
       <div className="contract_serv">
-        <p>{categoria}</p>
+        <p>{cards.categoria}</p>
       </div>
       {/* <ul>
         {cards.map((card) => {
