@@ -48,13 +48,13 @@ export default function Inicio() {
       <div className="banner">
         <div>
           <div>
-            <Link to="#">
+            <Link to="/cards/tipo?categoria=eletricista">
               <img alt="Eletricista" src={serv1} />
             </Link>
             <Link to="#">Eletricista</Link>
           </div>
           <div>
-            <Link to="#">
+            <Link to="/cards/tipo?categoria=informatica">
               <img alt="Técnico em Informática" src={serv2} />
             </Link>
             <Link to="#"> Informática</Link>

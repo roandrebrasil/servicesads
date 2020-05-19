@@ -10,7 +10,7 @@ import serv4 from "../../assets/Pedreiro.png";
 
 export default function ListCards({ categoria }) {
   const [cards, setCards] = useState([]);
-  // const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
   useEffect(() => {
     async function loadCards() {
       const response = await api.get("/cards/tipo", {
@@ -18,7 +18,7 @@ export default function ListCards({ categoria }) {
       });
 
       setCards(response.data);
-      // setUsers(response.data);
+      setUsers(response.data);
     }
 
     loadCards();
@@ -35,7 +35,7 @@ export default function ListCards({ categoria }) {
             <Link to="#">Eletricista</Link>
           </div>
           <div>
-            <Link to="/cards/tipo?categoria=informatica">
+            <Link to="#">
               <img alt="Técnico em Informática" src={serv2} />
             </Link>
             <Link to="#"> Informática</Link>
@@ -55,9 +55,9 @@ export default function ListCards({ categoria }) {
         </div>
       </div>
       <div className="contract_serv">
-        <p>{cards.categoria}</p>
+        <p>Categoria: {categoria}</p>
       </div>
-      {/* <ul>
+      <ul>
         {cards.map((card) => {
           return (
             <li className="serv-item">
@@ -82,7 +82,7 @@ export default function ListCards({ categoria }) {
             </li>
           );
         })}
-      </ul> */}
+      </ul>
     </>
   );
 }
