@@ -16,6 +16,7 @@ export default function Inicio() {
   const [portfolio, setPortfolio] = useState({
     name: "",
   });
+  const [filter, setfilter] = useState(null);
 
   useEffect(() => {
     let user = sessionStorage.getItem("__USER");
@@ -26,11 +27,12 @@ export default function Inicio() {
 
     const fetch = async () => {
       try {
-        const response = await api.get("/cards/card", {
+        const response = await api.get("/cards/todos", {
           headers: {
             authorization: `Bearer ${sessionStorage.getItem(`__TOKEN`)}`,
           },
         });
+        console.log(response.data);
         const { cards } = response.data;
         if (cards) {
           setCards(cards);
@@ -44,32 +46,37 @@ export default function Inicio() {
 
   return (
     <div id="app">
-      {/* {JSON.stringify(cards)} */}
       <div className="banner">
         <div>
-          <div>
-            <Link to="/cards/tipo?categoria=eletricista">
+          <div onClick={() => setfilter("eletricista")}>
+            <Link to="#">
               <img alt="Eletricista" src={serv1} />
             </Link>
             <Link to="#">Eletricista</Link>
           </div>
-          <div>
-            <Link to="/cards/tipo?categoria=informatica">
+          <div onClick={() => setfilter("informatica")}>
+            <Link to="#">
               <img alt="Técnico em Informática" src={serv2} />
             </Link>
             <Link to="#"> Informática</Link>
           </div>
-          <div>
+          <div onClick={() => setfilter("limpeza")}>
             <Link to="#">
               <img alt="Profissional de Limpeza" src={serv3} />
             </Link>
             <Link to="#">Limpeza</Link>
           </div>
-          <div>
+          <div onClick={() => setfilter("pedreiro")}>
             <Link to="#">
               <img alt="Pedreiro" src={serv4} />
             </Link>
-            <Link to="#"> Pedreiro </Link>
+            <Link to="#">Pedreiro </Link>
+          </div>
+          <div onClick={() => setfilter(null)}>
+            <Link to="#">
+              <span style={{ fontSize: '48px', border: '0.5px solid gray', borderRadius: '50px' }}> X </span>
+            </Link>
+            <Link to="#">Limpar filtro </Link>
           </div>
         </div>
       </div>
@@ -80,13 +87,13 @@ export default function Inicio() {
 
       <main>
         <ul>
-          {cards.map((card) => {
+          {cards.filter((card) => card.categoria == filter || filter == null)?.map((card) => {
             return (
               <li className="serv-item">
                 <header>
-                  <img src={portfolio.perfil} alt="foto" />
+                  <img src={card.user.perfil} alt="foto" />
                   <div className="user-info">
-                    <strong>{portfolio.name}</strong>
+                    <strong>{card.user.name}</strong>
                   </div>
                 </header>
                 <div className="des-item">
@@ -95,7 +102,7 @@ export default function Inicio() {
                   <span>{card.description}</span>
                   <a href="/portfolio">Ver mais</a>
                   <a href="/portfolio" style={{ margin: 0 }}>
-                    {card.phone.replace(
+                    {card?.phone?.replace(
                       /\(*([0-9]{2})\)*\s{0,1}([0-9]{4,5})-{0,1}([0-9]{4})/,
                       "($1) $2-$3"
                     )}

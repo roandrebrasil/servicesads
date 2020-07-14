@@ -58,7 +58,7 @@ export default function ListCards({ categoria }) {
         <p>Categoria: {categoria}</p>
       </div>
       <ul>
-        {cards.map((card) => {
+        {cards?.map((card) => {
           return (
             <li className="serv-item">
               <header>

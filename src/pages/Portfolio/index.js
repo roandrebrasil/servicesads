@@ -19,7 +19,7 @@ export default function Portfolio() {
     facebook: '',
   });
 
-
+  const [cardfilter, setCardfilter] = useState(null);
   useEffect(() => {
 
     const fetch = async () => {
@@ -95,24 +95,18 @@ export default function Portfolio() {
           return (
             <li className="serv-item">
               <header>
-                <img
-                  src="https://avatars3.githubusercontent.com/u/50125514?s=460&v=4"
-                  alt="Rômulo Brasil"
-                />
+                <img src={card.user.perfil} alt="foto" />
                 <div className="user-info">
-                  <strong>{user.name}</strong>
+                  <strong>{card.user.name}</strong>
                 </div>
               </header>
               <div className="des-item">
-                <img
-                  src={card.picture}
-                  alt="Eletricista"
-                />
+                <img src={card.picture} alt="img_servico" />
                 <h4>{card.name}</h4>
                 <span>{card.description}</span>
                 <a href="/portfolio">Ver mais</a>
                 <a href="/portfolio" style={{ margin: 0 }}>
-                  {card.phone.replace(
+                  {card?.phone?.replace(
                     /\(*([0-9]{2})\)*\s{0,1}([0-9]{4,5})-{0,1}([0-9]{4})/,
                     "($1) $2-$3"
                   )}
